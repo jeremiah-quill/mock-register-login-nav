@@ -16,8 +16,6 @@ const theme = {
 const Navbar = () => {
 	const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
 	const { light, dark } = theme;
-
-	console.log(isDarkMode);
 	return (
 		<div style={isDarkMode ? dark : light} className="Navbar">
 			<input type="checkbox" onChange={toggleDarkMode} />

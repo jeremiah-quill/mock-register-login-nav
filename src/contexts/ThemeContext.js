@@ -9,5 +9,3 @@ export function ThemeProvider(props) {
 	};
 	return <ThemeContext.Provider value={{ isDarkMode, toggleDarkMode }}>{props.children}</ThemeContext.Provider>;
 }
-
-// export { ThemeContext, ThemeProvider };
