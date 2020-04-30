@@ -33,9 +33,16 @@ const RegisterForm = () => {
 
 	const { dark, light } = theme;
 	return (
-		<div className="RegisterFormContainer">
+		// <div className="RegisterFormContainer">
+		<div className="register-form-container">
+			<CSSTransition in={currentFormStep === 'step2'} classNames="slide-previous" timeout={500}>
+				<div className="form-button-previous" onClick={() => setCurrentFormStep('step1')}>
+					Action
+				</div>
+			</CSSTransition>
 			<div style={isDarkMode ? dark : light} className="registerForm">
 				<h3>Register</h3>
+
 				<form onSubmit={handleSubmit}>
 					<CSSTransition in={currentFormStep === 'step1'} classNames="slide1" unmountOnExit timeout={500}>
 						<div className="formStep">
@@ -60,24 +67,25 @@ const RegisterForm = () => {
 								placeholder="******"
 								value={passwordInput}
 							/>
-							<div className="form-button" onClick={() => setCurrentFormStep('step2')}>
-								Next
-							</div>
 						</div>
 					</CSSTransition>
 
 					<CSSTransition in={currentFormStep === 'step2'} classNames="slide2" unmountOnExit timeout={500}>
 						<div className="formStep">
 							<div>STEP 2</div>
-							<div className="form-button" onClick={() => setCurrentFormStep('step1')}>
-								Previous
-							</div>
+
 							<button>Submit</button>
 						</div>
 					</CSSTransition>
 				</form>
 			</div>
+			<CSSTransition in={currentFormStep === 'step1'} classNames="slide-next" timeout={500}>
+				<div className="form-button-next" onClick={() => setCurrentFormStep('step2')}>
+					Action
+				</div>
+			</CSSTransition>
 		</div>
+		// </div>
 	);
 };
 
